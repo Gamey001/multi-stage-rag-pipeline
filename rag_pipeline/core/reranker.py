@@ -75,7 +75,7 @@ def rerank(
         )
 
     rescored = sorted(
-        (ScoredChunk(c.chunk, s, "rerank") for c, s in zip(candidates, scores)),
+        (ScoredChunk(c.chunk, s, "rerank") for c, s in zip(candidates, scores, strict=True)),
         key=lambda r: r.score,
         reverse=True,
     )

@@ -45,7 +45,7 @@ def test_long_paragraph_splits_on_sentence_boundaries_with_overlap():
     for chunk in chunks:
         assert chunk.text.endswith(".")
         assert all(part in sentences for part in split_sentences(chunk.text))
-    for previous, current in zip(chunks, chunks[1:]):
+    for previous, current in zip(chunks, chunks[1:], strict=False):
         assert split_sentences(previous.text)[-1] == split_sentences(current.text)[0]
 
 
